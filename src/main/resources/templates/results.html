@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            height: 52px;
+            background-color: #e40044;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 1200px;
+            margin: auto;
+        }
+
+        li {
+            display: inline-block;
+            background-color: #FFEAAE;
+            width: 400px;
+            padding: 25px;
+        }
+
+        li:hover {
+            background-color: #FFC100;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+        }
+
+        .search__text {
+            height: 40px;
+            width: 350px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .search__button {
+            background-color: transparent;
+            border: none;
+            height: 40px;
+            width: 40px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="logo"></div>
+    <form class="search" action="results.html" method="get">
+        <input type="text" class="search__text" placeholder="   search" name="search__text">
+        <input type="submit" class="search__button" value="🔎">
+    </form>
+</nav>
+<ul class="products">
+    <li class="products__item" th:each="game : ${filteredGames}">
+        <h3><span th:text="${game.title}"> </span></h3>
+        <div th:text="${game.shortDescription}"> </div>
+        <div th:text="${game.rating}"></div><div th:text="'&#11088;' + ' (' + ${game.ratingsNumber} + ')'"> </div>
+    </li>
+</ul>
+</body>
+</html>

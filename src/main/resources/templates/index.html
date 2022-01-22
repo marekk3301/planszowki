@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Games</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            height: 52px;
+            background-color: #e40044;
+        }
+
+        .logo {
+            margin-left: 80px;
+            height: 52px;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+            margin-right: 80px;
+        }
+
+        .search__text {
+            height: 40px;
+            width: 350px;
+            padding-left: 15px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .search__text:focus-visible {
+            outline: none;
+            background-color: whitesmoke;
+        }
+
+        .search__button {
+            background-color: transparent;
+            border: none;
+            height: 40px;
+            width: 40px;
+            font-size: 20px;
+        }
+
+        .search__button:hover {
+            font-size: 22px;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 1200px;
+            margin: auto;
+        }
+
+        li {
+            display: inline-block;
+            background-color: #FFEAAE;
+            width: 400px;
+            padding: 25px;
+        }
+
+        li:hover {
+            background-color: #FFC100;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img class="logo" alt="rEbeL" src="https://www.rebel.pl/images/logo/rebel-white.png">
+        <form class="search" action="index.html" method="get">
+            <input type="text" class="search__text" placeholder="search" name="search__text">
+            <input type="submit" class="search__button" value="🔎">
+        </form>
+    </nav>
+    <ul class="products">
+        <li class="products__item" th:each="game : ${games}">
+            <h3><span th:text="${game.title}"> </span></h3>
+            <div th:text="${game.shortDescription}"> </div>
+            <div th:text="${game.rating} + ' &#11088;'"></div><div th:text="' (' + ${game.ratingsNumber} + ')'"> </div>
+        </li>
+    </ul>
+</body>
+</html>

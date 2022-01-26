@@ -5,6 +5,19 @@
              version="3.0">
   <persistence-unit name="planszowki">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <class>pl.edu.pjatk.planszowki.model.AuthorEntity</class>
+    <class>pl.edu.pjatk.planszowki.model.AuthorGameEntity</class>
+    <class>pl.edu.pjatk.planszowki.model.AwardEntity</class>
+    <class>pl.edu.pjatk.planszowki.model.CategoryEntity</class>
+    <class>pl.edu.pjatk.planszowki.model.CategoryGameEntity</class>
+    <class>pl.edu.pjatk.planszowki.model.GameEntity</class>
+    <class>pl.edu.pjatk.planszowki.model.IllustratorEntity</class>
+    <class>pl.edu.pjatk.planszowki.model.IllustratorGameEntity</class>
+    <class>pl.edu.pjatk.planszowki.model.OrderEntity</class>
+    <class>pl.edu.pjatk.planszowki.model.OrderGameEntity</class>
+    <class>pl.edu.pjatk.planszowki.model.PublisherEntity</class>
+    <class>pl.edu.pjatk.planszowki.model.StorageEntity</class>
+    <class>pl.edu.pjatk.planszowki.model.UserEntity</class>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:8080/"/>
@@ -14,6 +27,8 @@
       <property name="hibernate.format_sql" value="true"/>
       <property name="hibernate.use_sql_comments" value="true"/>
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+        <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306"/>
+        <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
     </properties>
   </persistence-unit>
     <persistence-unit name="persistence"/>

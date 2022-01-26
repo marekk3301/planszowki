@@ -1,6 +1,5 @@
 package pl.edu.pjatk.planszowki.service;
 
-import com.speedment.jpastreamer.application.JPAStreamer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,7 +7,7 @@ import org.springframework.stereotype.Service;
 import pl.edu.pjatk.planszowki.exceptions.GameNotFoundException;
 import pl.edu.pjatk.planszowki.exceptions.IdAlreadyExistsException;
 import pl.edu.pjatk.planszowki.model.GameEntity;
-import pl.edu.pjatk.planszowki.model.GameEntity$;
+//import pl.edu.pjatk.planszowki.model.GameEntity$;
 import pl.edu.pjatk.planszowki.repository.GameRepository;
 
 import java.util.List;
@@ -21,18 +20,18 @@ import java.util.stream.Collectors;
 public class GameService {
     private final GameRepository gameRepository;
 
-    @Autowired
-    JPAStreamer jpaStreamer = JPAStreamer.of("planszowki");
+//    @Autowired
+//    JPAStreamer jpaStreamer = JPAStreamer.of("planszowki");
 
     public List<GameEntity> getAllGamesFromRepository() {
         return gameRepository.findAll();
     }
 
     public List<GameEntity> getFilteredGamesFromRepository(String keyword) {
-//        List<GameEntity> gameList = gameRepository.findAll();
-        return jpaStreamer.stream(GameEntity.class)
-                .filter(GameEntity$.title.contains(keyword.toLowerCase(Locale.ROOT)))
-                .collect(Collectors.toList());
+//        return jpaStreamer.stream(GameEntity.class)
+//                .filter(GameEntity$.title.contains(keyword.toLowerCase(Locale.ROOT)))
+//                .collect(Collectors.toList());
+        return null;
     }
 
     public GameEntity getGameFromRepository(String id) {

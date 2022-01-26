@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import pl.edu.pjatk.planszowki.model.GameEntity;
 import pl.edu.pjatk.planszowki.service.GameService;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,5 +25,11 @@ public class GameController {
     public String showFiltered(Model model, @RequestParam(value = "search__text", required = false) String keyword) {
         model.addAttribute("filteredGames", gameService.getFilteredGamesFromRepository(keyword));
         return "index";
+    }
+
+    @GetMapping("/game/{id}")
+    public String showGame(Model model, @PathVariable String id) {
+        model.addAttribute("game", gameService.getGameFromRepository(id));
+        return "game";
     }
 }

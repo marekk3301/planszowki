@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Games</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+
         * {
             box-sizing: border-box;
             padding: 0;
@@ -11,10 +13,15 @@
         }
 
         nav {
-            display: flex;
-            justify-content: space-between;
             height: 52px;
             background-color: #e40044;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            margin: auto;
+            max-width: 1200px;
         }
 
         .logo {
@@ -57,36 +64,46 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            width: 1200px;
+            max-width: 1200px;
             margin: auto;
         }
 
         li {
             display: inline-block;
             background-color: #FFEAAE;
+            color: black;
             width: 400px;
             padding: 25px;
+            font-weight: 300;
+            font-family: "Roboto Condensed";
         }
 
         li:hover {
             background-color: #FFC100;
         }
+
+        li h3 {
+            font-weight: 400;
+        }
     </style>
 </head>
 <body>
     <nav>
-        <img class="logo" alt="rEbeL" src="https://www.rebel.pl/images/logo/rebel-white.png">
-        <form class="search" action="index.html" method="get">
-            <input type="text" class="search__text" placeholder="search" name="search__text">
-            <input type="submit" class="search__button" value="🔎">
-        </form>
+        <div class="navbar">
+            <img class="logo" alt="rEbeL" src="https://www.rebel.pl/images/logo/rebel-white.png">
+            <form class="search" action="index.html" method="get">
+                <input type="text" class="search__text" placeholder="search" name="search__text">
+                <input type="submit" class="search__button" value="🔎">
+            </form>
+        </div>
+
     </nav>
     <ul class="products">
-        <li class="products__item" th:each="game : ${games}">
+        <a th:each="game : ${games}" th:href="'game/' + ${game.id}"><li class="products__item">
             <h3><span th:text="${game.title}"> </span></h3>
             <div th:text="${game.shortDescription}"> </div>
             <div th:text="${game.rating} + ' &#11088;'"></div><div th:text="' (' + ${game.ratingsNumber} + ')'"> </div>
-        </li>
+        </li></a>
     </ul>
 </body>
 </html>

@@ -1,9 +1,14 @@
 package pl.edu.pjatk.planszowki.model;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Objects;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "game", schema = "planszowki", catalog = "")
 public class GameEntity {
@@ -23,6 +28,11 @@ public class GameEntity {
     private Integer ratingsNumber;
     private Double weight;
     private Date releaseDate;
+
+    public GameEntity(int i, String name) {
+        this.id = i;
+        this.title = name;
+    }
 
     @Basic
     @Column(name = "title")

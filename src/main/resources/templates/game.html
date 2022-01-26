@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${game.title}"></title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav {
+            height: 52px;
+            background-color: #e40044;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            margin: auto;
+            max-width: 1200px;
+        }
+
+        .logo {
+            margin-left: 80px;
+            height: 52px;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+            margin-right: 80px;
+        }
+
+        .search__text {
+            height: 40px;
+            width: 350px;
+            padding-left: 15px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .search__text:focus-visible {
+            outline: none;
+            background-color: whitesmoke;
+        }
+
+        .search__button {
+            background-color: transparent;
+            border: none;
+            height: 40px;
+            width: 40px;
+            font-size: 20px;
+        }
+
+        .search__button:hover {
+            font-size: 22px;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: auto;
+            background-color: #FFEAAE;
+            padding: 60px;
+        }
+
+        .rate ul {
+            margin-top: 20px;
+            list-style: none;
+            display: inline-flex;
+        }
+
+        .rate ul li:not(:first-child):hover {
+            transform: scale(1.2);
+        }
+
+        .info ul {
+            margin-top: 20px;
+            list-style: none;
+            display: inline-flex;
+            width: 300px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        p {
+            margin-top: 60px;
+        }
+
+/*
+        .rate ul li:nth-child(2):hover
+        .rate ul li:nth-child(-n+2){
+            transform: scale(1.2);
+        }
+
+        .rate ul li:nth-child(3):hover
+        .rate ul li:nth-child(-n+3){
+            transform: scale(1.2);
+        }
+
+        .rate ul li:nth-child(4):hover
+        .rate ul li:nth-child(-n+4){
+            transform: scale(1.2);
+        }
+
+        .rate ul li:nth-child(5):hover
+        .rate ul li:nth-child(-n+5){
+            transform: scale(1.2);
+        }
+*/
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <img class="logo" alt="rEbeL" src="https://www.rebel.pl/images/logo/rebel-white.png">
+            <form class="search" action="index.html" method="get">
+                <input type="text" class="search__text" placeholder="search" name="search__text">
+                <input type="submit" class="search__button" value="🔎">
+            </form>
+        </div>
+    </nav>
+    <div class="content">
+        <h1 th:text="${game.title}"></h1>
+        <div class="rate">
+            <ul>
+                <li th:text="${game.rating}"></li>
+                <li>⭐</li>
+                <li>⭐</li>
+                <li>⭐</li>
+                <li>⭐</li>
+                <li>⭐</li>
+            </ul>
+        </div>
+
+        <div class="info">
+            <ul>
+                <li><span th:text="${game.playersMin} + '-'"></span><span th:text="${game.playersMax} + ' osób'"></span></li>
+                <li><span th:text="'od ' + ${game.ageMin} + ' lat'"></span></li>
+                <li><span th:text="${game.timeMin}"></span><span th:unless="${game.timeMax} == null" th:text="'-' + ${game.timeMax}"></span> min</li>
+                <li><span th:text="'język: ' + ${game.ageMin}"></span></li>
+            </ul>
+        </div>
+
+        <p th:text="${game.longDescription}"></p>
+
+
+
+
+
+    </div>
+
+
+</body>
+</html>
